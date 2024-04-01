@@ -23,7 +23,7 @@ class Team extends Model
         return $this->belongsTo(Discipline::class);
     }
 
-    public function logo() {
-        return $this->belongsTo(Logo::class);
+    public function image() {
+        return $this->belongsTo(Image::class);
     }
 }

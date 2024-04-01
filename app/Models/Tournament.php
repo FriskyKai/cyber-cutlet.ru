@@ -10,7 +10,7 @@ class Tournament extends Model
     use HasFactory;
 
     protected $fillable = [
-        'disciplineId',
+        'discipline_id',
         'prizeMoney',
         'contribution',
         'date',

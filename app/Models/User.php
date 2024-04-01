@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'firstName',
         'lastName',
-        'birthData',
+        'birthDate',
         'email',
         'phone',
         'nickname',
@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function generateToken() {
         $this->remember_token = Hash::make(Str::random());
-        $this->save;
+        $this->save();
         return $this->remember_token;
     }
 
@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->belongsTo(Team::class);
     }
 
-    public function photo() {
-        return $this->belongsTo(Photo::class);
+    public function image() {
+        return $this->belongsTo(Image::class);
     }
 }

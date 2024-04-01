@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nickname')->unique();
             $table->string('password');
             $table->foreignId('team_id')->nullable()->constrained()->onUpdate('cascade');
-            $table->string('photoUrl');
+            $table->string('photoUrl')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

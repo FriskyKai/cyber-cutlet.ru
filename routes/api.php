@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
@@ -31,14 +32,17 @@ Route::middleware('auth:api')->group(function () {
     //Выход
     Route::get('/logout', [AuthController::class, 'logout']);
 
+    // Создание дисциплины
+    Route::post('/disciplines', [DisciplineController::class, 'create']);
+
     // Создание команды
-    Route::post('/teams', [TeamController::class, 'addTeam']);
+    Route::post('/teams', [TeamController::class, 'create']);
 
     // Регистрация команды на турнир
     Route::post('/tournaments/{id}/teams', [TeamController::class, 'addTeam']);
 
     // Список турниров
-    Route::get('/tournaments', [TournamentController::class, 'tourList']);
+    Route::get('/tournaments', [TournamentController::class, 'tournamentsList']);
 
     // Список участников турнира
     Route::get('/tournaments/{id}/teams', [TournamentController::class, 'teamMembers']);
